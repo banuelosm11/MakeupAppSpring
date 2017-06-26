@@ -2,6 +2,7 @@ package com.aurora.Domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 /**
@@ -32,7 +33,7 @@ public class Product {
     private String color;
 
     @Column(name="PRICE")
-    @NotEmpty
+    @NotNull
     private double price;
 
     @Column(name="PURCHASEDATE")

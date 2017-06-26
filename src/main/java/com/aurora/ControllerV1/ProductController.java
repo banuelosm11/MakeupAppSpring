@@ -38,6 +38,7 @@ public class ProductController {
     public ResponseEntity<?> getOneProduct(@RequestBody Product p) {
         Product prod = productRepository.findOne(p.getId());
         prod.setBrand(p.getBrand());
+        System.out.println(prod.getBrand());
         prod.setUsedUP(p.isUsedUP());
         prod.setCategory(p.getCategory());
         prod.setRepurchase(p.isRepurchase());
