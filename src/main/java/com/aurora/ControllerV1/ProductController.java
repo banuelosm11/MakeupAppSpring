@@ -36,19 +36,8 @@ public class ProductController {
 
     @RequestMapping(value="/put", method= RequestMethod.PUT)
     public ResponseEntity<?> getOneProduct(@RequestBody Product p) {
-        Product prod = productRepository.findOne(p.getId());
-        prod.setBrand(p.getBrand());
-        System.out.println(prod.getBrand());
-        prod.setUsedUP(p.isUsedUP());
-        prod.setCategory(p.getCategory());
-        prod.setRepurchase(p.isRepurchase());
-        prod.setReview(p.getReview());
-        prod.setColor(p.getColor());
-        prod.setProductName(p.getProductName());
-        prod.setPrice(p.getPrice());
-        prod.setPurchaseDate(p.getPurchaseDate());
-        prod.setExpirationDate(p.getExpirationDate());
-        return new ResponseEntity<>(productRepository.findOne(prod.getId()), HttpStatus.OK);
+        productRepository.save(p);
+        return new ResponseEntity<>(productRepository.findOne(p.getId()), HttpStatus.OK);
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
